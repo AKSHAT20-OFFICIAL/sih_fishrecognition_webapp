@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import ImageUploading from "react-images-uploading";
 import upload from '../assets/upload.svg'
+import Navbar from './Navbar';
 const Upload = () => {
   const [images, setImages] = useState([]);
   // const [uploaded, setUploaded] = useState(false);
@@ -12,7 +13,8 @@ const Upload = () => {
   };
 
   return (
-    <div className='flex-column lg:hidden md:hidden' >
+    <div className='flex-column block md:hidden bg-[#00232D] h-screen' >
+      <Navbar/>
         <h1 className='text-white font-bolder text-center' >Upload Images</h1>
         <p className='text-slate-300 font-light text-center '>PNG, JPG, and JPEG files are allowed</p>
         <div className='flex'>
@@ -78,7 +80,9 @@ const Upload = () => {
         <div className='w-2/5'  ></div>
         <div className='w-3/5 flex '>
         <button className='w-1/2 text-center align-middle  my-5 float-center px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg'>Search</button>
-        <button className='w-1/2  text-center align-middle ml-3 my-5  px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg'>capture</button>
+        <a href='/capture'>
+          <button className='w-1/2  text-center align-middle ml-3 my-5  px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg'>capture</button>
+          </a>
         </div>
        
         <div className=' w-2/5'></div>
