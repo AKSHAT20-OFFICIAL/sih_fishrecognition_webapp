@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="w-full h-screen bg-[#00232D]">
       <MobileNav/>
-      <UploadDesktop className="hidden md:block"/> 
-      <Upload className= "md:hidden"/>
+      <UploadDesktop/> 
+      <Upload />
     </div>
   );
 }

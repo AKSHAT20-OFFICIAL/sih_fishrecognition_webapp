@@ -3,7 +3,7 @@ import React from 'react'
 const UploadDesktop = () => {
   return (
     <>
-        <div className='flex '>
+        <div className='flex hidden sm:block'>
             <div className=''>
             <h1 className='text-white font-bolder text-center' >Upload Images</h1>
             <p className='text-slate-300 font-light text-center '>PNG, JPG, and JPEG files are allowed</p>
@@ -16,6 +16,9 @@ const UploadDesktop = () => {
                 
                     <div className=' w-2/5'></div>
                     </div>
+            </div>
+            <div className=''>
+              
             </div>
         </div>
     </>
