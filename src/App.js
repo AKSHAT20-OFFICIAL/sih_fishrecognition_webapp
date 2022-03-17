@@ -7,7 +7,7 @@ import UploadDesktop from './components/UploadDesktop';
 
 function App() {
   return (
-    <div className="w-full h-screen bg-[#00232D]">
+    <div className="w-full h-full bg-[#00232D]">
       <MobileNav/>
       <UploadDesktop/> 
       <Upload />
