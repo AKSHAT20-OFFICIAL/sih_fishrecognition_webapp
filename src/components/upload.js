@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import ImageUploading from "react-images-uploading";
 import upload from '../assets/upload.svg'
 import Navbar from './Navbar';
+import axios from 'axios';
+
 const Upload = () => {
   const [images, setImages] = useState([]);
   // const [uploaded, setUploaded] = useState(false);
@@ -11,6 +13,25 @@ const Upload = () => {
     console.log(imageList, addUpdateIndex);
     setImages(imageList);
   };
+
+
+  const [selectedFile, setSelectedFile] = React.useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData();
+    formData.append("selectedFile", selectedFile);
+    try {
+      const response = await axios({
+        method: "post",
+        url: "/api/upload/file",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    } catch(error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='flex-column block md:hidden bg-[#00232D] h-screen' >
@@ -79,7 +100,7 @@ const Upload = () => {
         <div className='flex flex-row flex-basis'>
         <div className='w-2/5'  ></div>
         <div className='w-3/5 flex '>
-        <button className='w-1/2 text-center align-middle  my-5 float-center px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg'>
+        <button className='w-1/2 text-center align-middle  my-5 float-center px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg' onClick={handleSubmit}>
           <a href='/details'>Search</a>
           </button>
         <a className='w-1/2  text-center align-middle ml-3 my-5  px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg' href='/capture'>

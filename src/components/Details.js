@@ -30,3 +30,4 @@ export default function Details() {
         </div>
     )
 }
+// 519303

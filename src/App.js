@@ -1,6 +1,7 @@
 import './App.css';
 import React,{useState} from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from 'axios'
 
 import Capture from './components/capture';
 import Footer from './components/Footer';
@@ -13,6 +14,17 @@ import Details from './components/Details';
 function App() {
 
   const [image, setImage] = useState('');
+
+  const getDetails = async ()=>{
+    axios.get('http://127.0.0.1:8000/')
+    .then(function (response){
+      console.log(response);
+    })
+    .catch(function (error){
+      console.log(error)
+    })
+  }
+
 
 
   return (
@@ -28,7 +40,7 @@ function App() {
         <Route path='/details' element={<Details image={image}/>}/>
         </Routes>
       </BrowserRouter>
-      
+      <button className= 'text-black' onClick={getDetails}>GET</button>
       <Footer />
     </div>
   );
