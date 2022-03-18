@@ -21,10 +21,10 @@ const UploadDesktop = () => {
 
   return (
 
-    <div className='h-screen'>
+    <div className='h-screen bg-[#00232D]'>
       <div className=' hidden md:block'>
         <Navbar />
-        <div className="flex items-center pt-10 h-[90vh] bg-[#00232D]">
+        <div className="flex items-center pt-10 h-[50vh] ">
           <div className='basis-1/2 r'>
             <h1 className='text-white text-3xl font-bold text-center mb-3'>Upload Images or Videos</h1>
             <p className='text-white font-light text-center'>PNG, JPG, and JPEG  files are allowed</p>
@@ -37,7 +37,59 @@ const UploadDesktop = () => {
 
           </div>
           <div className='basis-1/2 text-white'>
-            hello
+          <div className=' border-white border-dashed border-2 p-4 m-10 w-3/5 '>
+          <ImageUploading
+        multiple
+        value={images}
+        onChange={onChange}
+        maxNumber={maxNumber}
+        dataURLKey="data_url"
+        
+      >
+        {({
+          imageList,
+          onImageUpload,
+          onImageRemoveAll,
+          onImageUpdate,
+          onImageRemove,
+          isDragging,
+          dragProps
+        }) => (
+          // write your building UI
+          <div className="flex-column items-center p-5 m-5   ">
+            
+            <img src={upload} alt="icon" className="flex-center justify-center mx-auto"/>
+            <button
+              style={isDragging ? { color: "red" } : null}
+              onClick={onImageUpload}
+              {...dragProps}
+              className="text-center justify-center text-white font-semibold mx-auto"
+            >
+             Drag and Drop or browse to choose a file
+            </button>
+            {({ imageList, dragProps, isDragging }) => (
+              <div {...dragProps}>
+                {isDragging ? "Drop here please" : "Upload space"}
+                {imageList.map((image, index) => (
+                  <img key={index} src={image.data_url} alt="" />
+                ))}
+              </div>
+            )}
+            {imageList.map((image, index) => (
+              <div key={index} className="image-item w-full">
+                <img src={image['data_url']} alt="" width="100" />
+                <div className="image-item__btn-wrapper">
+                  {/* <button onClick={() => onImageUpdate(index)}>Update</button> */}
+                  <button onClick={() => onImageRemove(index)} className="text-white text-center ">Remove</button>
+                </div>
+              </div>
+            ))}
+            
+          </div>
+        )}
+        
+      </ImageUploading>
+      </div>
           </div>
         </div>
       </div>

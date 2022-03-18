@@ -80,8 +80,8 @@ const Upload = () => {
         <div className='w-2/5'  ></div>
         <div className='w-3/5 flex '>
         <button className='w-1/2 text-center align-middle  my-5 float-center px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg'>Search</button>
-        <a href='/capture'>
-          <button className='w-1/2  text-center align-middle ml-3 my-5  px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg'>capture</button>
+        <a className='w-1/2  text-center align-middle ml-3 my-5  px-10 py-3 bg-[#dddddd] text-black font-bold rounded-lg' href='/capture'>
+          <button className='font-bold' >capture</button>
           </a>
         </div>
        
