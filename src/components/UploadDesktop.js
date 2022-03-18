@@ -21,7 +21,7 @@ const UploadDesktop = () => {
 
   return (
 
-    <div className='h-full bg-[#00232D]'>
+    <div className='h-screen bg-[#00232D]'>
       <div className=' hidden md:block'>
         <Navbar />
         <div className="flex items-center pt-10 h-[50vh] ">
